@@ -4,7 +4,6 @@ import com.desafio.bcsclient.entities.Client;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.Objects;
 
 public class ClientDto implements Serializable {
 
@@ -14,7 +13,7 @@ public class ClientDto implements Serializable {
     private String name;
     private String cpf;
     private Double income;
-    private Instant birthDay;
+    private Instant birthDate;
     private Integer children;
 
     public ClientDto() {
@@ -25,7 +24,7 @@ public class ClientDto implements Serializable {
         this.name = entity.getName();
         this.cpf = entity.getCpf();
         this.income = entity.getIncome();
-        this.birthDay = entity.getBirthDay();
+        this.birthDate = entity.getBirthDate();
         this.children = entity.getChildren();
     }
 
@@ -61,12 +60,12 @@ public class ClientDto implements Serializable {
         this.income = income;
     }
 
-    public Instant getBirthDay() {
-        return birthDay;
+    public Instant getBirthDate() {
+        return birthDate;
     }
 
-    public void setBirthDay(Instant birthDay) {
-        this.birthDay = birthDay;
+    public void setBirthDate(Instant birthDate) {
+        this.birthDate = birthDate;
     }
 
     public Integer getChildren() {

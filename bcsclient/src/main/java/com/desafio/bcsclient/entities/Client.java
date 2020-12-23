@@ -1,29 +1,35 @@
 package com.desafio.bcsclient.entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
+@Entity
+@Table(name = "tb_client")
 public class Client  implements Serializable {
 
     private static final long serialVersionUID=1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String cpf;
     private Double income;
-    private Instant birthDay;
+    @Column(name = "birth_date",columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    private Instant birthDate;
     private Integer children;
 
     public Client() {
     }
 
-    public Client(Long id, String name, String cpf, Double income, Instant birthDay, Integer children) {
+    public Client(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
         this.id = id;
         this.name = name;
         this.cpf = cpf;
         this.income = income;
-        this.birthDay = birthDay;
+        this.birthDate = birthDate;
         this.children = children;
     }
 
@@ -59,12 +65,12 @@ public class Client  implements Serializable {
         this.income = income;
     }
 
-    public Instant getBirthDay() {
-        return birthDay;
+    public Instant getBirthDate() {
+        return birthDate;
     }
 
-    public void setBirthDay(Instant birthDay) {
-        this.birthDay = birthDay;
+    public void setBirthDate(Instant birthDay) {
+        this.birthDate = birthDay;
     }
 
     public Integer getChildren() {
